@@ -6,7 +6,7 @@ import { FaArrowRight } from "react-icons/fa";
 const instructorSection = () => {
   return (
     <div className='flex flex-row gap-10 ml-5 pl-5'>
-        <div className='w-[50%] '>
+        <div className='w-[50%]'>
             <img src={Instructor} alt="" 
             className='shadow-blue-200 mt-16 shadow-[5px_-2px_25px_-5px] '/>
         </div>
