@@ -1,0 +1,31 @@
+Home work
+-> where we can put config in industry project
+
+
+
+
+
+
+
+
+
+-->CONCURRENTLY PACKAGE - It is used to run frontend and backend in one go
+In pakage.json->scripts->
+"server":"cd server && npm run dev",
+"dev":"concurrently -n \"client,server\" -c \"bgBlue,bgYellow\" \"npm start\" \"npm run server\""
+
+
+-->react-router-dom-It is use for making routes
+in index.js->import <Browswer Router>
+then-><Browswer Router><App/><Browswer Router/>
+
+
+
+
+
+
+
+
+
+
+

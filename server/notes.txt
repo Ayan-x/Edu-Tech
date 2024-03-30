@@ -1,0 +1,68 @@
+/* ---------------MODEL----------
+USER.JS-> It contain the data of the user and collected when signup
+Profile.js --> It contain additional details which can be filled if user wants.
+OTP.js --> It is schema of OTP which contain email, otp and when OTP is created
+          In this file, we also have pre middleware which send OTP to the user
+          threw email with the help of nodemailer.
+Course.js --> It contains the detail of course like title, price and description etc.
+          It also have a reference of user, tags, section etc.
+Section.js -> Since a course is divided into multiple section
+              It is schema which contain sub-section  and section-name.
+SubSection.js -->Since a section divided into multiple sub-section.
+              It contain title of a vedio, some description ,vedio-duration and vedioUrl.
+CourseProgress.js --> It is a schema which show about progress of course.
+                   It contain reference of course and subsection to find course progress
+Tag.js --> this schema contain keyword of course through which a student can filter out
+          the course one wants.
+RatingAndReview.js --> It is the schema which contain rating and reviews for course given
+                      by students.    
+
+*/
+/* -----------CONTROLLER----------------
+AUTH.js ->
+        sendOTP handler -> It is used to sendOTP when user want to do signup and 
+                            when someone forgot their password and want to change their password.
+                            First, it fetch the email and check the email does exist or not 
+                            by calling a request to DB.
+        signup handler -> It is used to do signup by doing following steps-
+                        1.fetching the data from req.body that is filled by user on the client side.
+                        2.Validating if the user has given all the details or not.
+                        3. Checking if the email is not already registered. If registered, then send a message that you 
+                             are already registered.
+                        4.Checking password and confirm Password are same or not.
+                        5.Since we have sendOtp to user and also created a OTP in database, but we want
+                          a recent OTP to check OTP is correct or not.
+                          TO get the recent OTP ->OTP.find({email}).sort({createdAt:-1}).limit(1);
+                        6.Then we will check OTP is valid or not by comparing it with the OTP we got 
+                         throgh database. We will also check the OTP is there from database by otp.length!==0.
+                        7.After checking OTP, we will hash the password through [bcrypt.hash(given_passwprd,10)]
+                        8.Then we will create a null profile in DB of Profile.js becuase we want to put data in additional 
+                         details.
+                        9.Then we will create User profile in which we give firstname,lastname,email,password:hashPassword,
+                        acountType, additional details and image.
+                        Image ->for default image we are calling dicebear API where we give first_name,last_name in the
+                               API call.It will take initial from the API and make an image like[AYAN AHMAD - AA]
+                        10. At the end of the day we return a response.
+        login handler -> It is used to do login by doing follwing steps-
+                        1.first we will fetch the email and password to login from request body, then check if the email
+                         and password is present or not.
+                        2.The we will check the user through email by making a  Seacrch DB call in User database through
+                         User.findone({email}).With that we will also populate additional details[.populate(additionalDetails)].
+                        3.Also checking User, if user is not present that means User is not registered.Then we will return
+                         response to signup.
+                        4.Then we will make a a call to bcrypt library that for comparing password,
+                         we will use command await bcrypt.compare(password,user.password).
+                        5.After comparing,we will make a token through jsonwebtoken library where we put payload,secret_key 
+                         and expiration time.
+                         The command will we-const token = await jwt.sign(payload,secret_key,{expiresIN:2h});
+                          Then we store token in user schema through user.token = token and now will undefined
+                          password for security purposes.
+            
+                          
+        
+
+
+
+
+
+*/
