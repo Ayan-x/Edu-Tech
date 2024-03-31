@@ -3,13 +3,13 @@ export const HomePageExplore = [
         tag: 'Free',
         courses : [
             {
-                heading : "Learn HTML",
+                heading : "HTML",
                 description : "This course covers the basic concepts of HTML including creating and structuring web pages, adding text, links, images, and more.",
                 level : 'Beginner',
                 lessionNumber : 6
             },
             {
-                heading : "Learn CSS",
+                heading : "CSS",
                 description : "This course explores advanced topics in HTML5 and CSS3, including animations, transitions, and layout techniques",
                 level : 'Beginner',
                 lessionNumber : 6
