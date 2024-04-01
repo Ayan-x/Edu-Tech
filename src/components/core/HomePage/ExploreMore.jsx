@@ -54,7 +54,7 @@ const ExploreMore = () => {
           }
         </div>
         <div className='
-         flex flex-row gap-10 justify-between w-full mt-[30px]'>
+         flex flex-row gap-10 justify-between w-full'>
           {
             courses.map((element, index)=>{
               return(
