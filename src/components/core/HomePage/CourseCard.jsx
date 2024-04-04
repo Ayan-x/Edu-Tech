@@ -11,7 +11,7 @@ const CourseCard = ({cardData,currentCard,setCurrentCard}) => {
         "bg-richblack-800 text-richblack-5"}
         `}
         onClick={clickHandler}>
-            <div className='border-b-dotted border-gray-500 flex flex-col gap-5'>
+            <div className='border-b-[2px] border-dashed border-spacing-2 border-gray-500 flex flex-col gap-5'>
             <div className='text-xl font-bold'> 
             {cardData.heading}
             </div>
