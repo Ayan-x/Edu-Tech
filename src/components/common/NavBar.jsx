@@ -42,7 +42,7 @@ const NavBar = () => {
         <div className='flex gap-x-4 items-center'>
           <Link to={"/login"}>
             
-          </Link>
+           </Link> 
         </div>
       </div>
     </div>
