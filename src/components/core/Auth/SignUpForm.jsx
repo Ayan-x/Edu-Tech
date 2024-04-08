@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SignUp = () => {
+const SignUpForm = () => {
   return (
     <div>
         <div className='flex flex-row bg-richblack-800'>
@@ -14,4 +14,4 @@ const SignUp = () => {
   )
 }
 
-export default SignUp
+export default SignUpForm
